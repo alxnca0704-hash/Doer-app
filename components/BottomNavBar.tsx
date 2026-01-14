@@ -11,14 +11,9 @@ const BottomNavBar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleAddPress = () => {
-    // Handle add button action here
-    // You can add your logic for adding items
-    console.log('Add button pressed');
-  };
-
   const isHome = pathname === '/' || pathname === '/index';
   const isSettings = pathname === '/SettingScreen';
+  const isAddTask = pathname === '/AddTaskScreen';
 
   return (
     <View style={styles.container}>
@@ -39,7 +34,7 @@ const BottomNavBar = () => {
         {/* Center Icon - Add Button (not a screen) */}
         <Pressable
           style={styles.centerButton}
-          onPress={handleAddPress}
+          onPress={() => router.push('/(tabs)/AddTaskScreen' as Href)}
         >
           <Ionicons name="add" size={28} color="#FFFFFF" />
         </Pressable>
