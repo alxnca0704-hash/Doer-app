@@ -15,6 +15,12 @@ export const createAddTaskStyles = (colors: ColorScheme) => {
   title: {
     fontSize: 30,
     fontWeight: 'bold'
+  },
+  availTaskText: {
+    paddingHorizontal: 20,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 30 ,
   }
 });
 

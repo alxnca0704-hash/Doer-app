@@ -39,7 +39,7 @@ const lightColors: ColorScheme = {
   success: "#34c759",
   warning: "#ff9500",
   danger: "#ff3b30",
-  shadow: "#000000",
+  shadow: "#868686",
   gradients: {
     background: ["#f5f5f5", "#e5e5ea"],
     surface: ["#ffffff", "#f5f5f5"],
