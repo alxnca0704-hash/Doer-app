@@ -25,16 +25,14 @@ export const createInputStyles = (colors: ColorScheme) => {
     input: {
       flex: 1,
       height: 50,
-      backgroundColor: "#fbfbfb",
+      backgroundColor: colors.input,
       borderRadius: 12,
       paddingHorizontal: 16,
       fontSize: 16,
       color: colors.text,
-      borderWidth: 1,
-      borderColor: colors.border,
     },
     addButton: {
-      backgroundColor: "#000",
+      backgroundColor: colors.button,
       paddingHorizontal: 24,
       paddingVertical: 14,
       borderRadius: 12,
@@ -44,7 +42,7 @@ export const createInputStyles = (colors: ColorScheme) => {
       minWidth: 80,
     },
     addButtonText: {
-      color: '#FFFFFF',
+      color: colors.text,
       fontSize: 16,
       fontWeight: '600',
     }

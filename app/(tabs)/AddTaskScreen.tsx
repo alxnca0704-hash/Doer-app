@@ -9,7 +9,7 @@ import { Doc } from '@/convex/_generated/dataModel'
 import useTheme from '@/hooks/useTheme'
 import { useQuery } from 'convex/react'
 import React from 'react'
-import { FlatList, Text } from 'react-native'
+import { FlatList, StatusBar, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const AddTaskScreen = () => {
@@ -30,13 +30,13 @@ const AddTaskScreen = () => {
   return (
     
     <SafeAreaView style={addTaskStyle.container}>
+      <StatusBar barStyle={colors.statusBarStyle}/>
       <Header title='Add Task'/>
       <Input/>
 
       <Text style={addTaskStyle.availTaskText}>
         Task
       </Text>
-
       
       <FlatList 
         data={todos} 

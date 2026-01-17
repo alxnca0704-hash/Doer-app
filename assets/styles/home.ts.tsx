@@ -14,7 +14,8 @@ export const createHomeStyles = (colors: ColorScheme) => {
   },
   title: {
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: colors.text
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -28,11 +29,11 @@ export const createHomeStyles = (colors: ColorScheme) => {
   sectionTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#1a1a1a',
+    color: colors.text,
     letterSpacing: 0.3,
   },
   countBadge: {
-    backgroundColor: '#e9ecef',
+    backgroundColor: colors.badge,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,
@@ -42,7 +43,7 @@ export const createHomeStyles = (colors: ColorScheme) => {
   sectionCount: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#495057',
+    color: colors.text,
   },
 });
 

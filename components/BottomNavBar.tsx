@@ -36,7 +36,7 @@ const BottomNavBar = () => {
           style={styles.centerButton}
           onPress={() => router.push('/(tabs)/AddTaskScreen' as Href)}
         >
-          <Ionicons name="add" size={28} color="#FFFFFF" />
+          <Ionicons name="add" size={28} color={colors.text} />
         </Pressable>
 
         {/* Right Icon - Settings */}

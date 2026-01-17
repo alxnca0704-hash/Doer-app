@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const createTodoItemStyle = (colors: ColorScheme) => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: colors.bg,
+      backgroundColor: colors.itemCard,
       marginHorizontal: 20,
       marginBottom: 20,
       paddingHorizontal: 20,
@@ -23,13 +23,14 @@ export const createTodoItemStyle = (colors: ColorScheme) => {
     title: {
       fontWeight: 'bold',
       fontSize: 18,
+      color: colors.text
     },
 
     checkbox: {
       width: 24,
       height: 24,
       borderWidth: 2,
-      borderColor: "black",
+      borderColor: colors.border,
       borderRadius: 6,
       justifyContent: 'center',
       alignItems: 'center',

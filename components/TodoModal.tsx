@@ -1,7 +1,9 @@
+import { createModalStyles } from '@/assets/styles/modalStyle';
 import { Doc } from '@/convex/_generated/dataModel';
+import useTheme from '@/hooks/useTheme';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { Modal, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, Pressable, Text, TouchableOpacity, View } from 'react-native';
 
 type Todo = Doc<"todos">;
 
@@ -24,6 +26,8 @@ const TodoModal = ({ visible, todo, onClose, onEdit, onDelete }: TodoModalProps)
     onDelete?.();
     onClose();
   };
+  const {colors } = useTheme();
+  const modalStyle = createModalStyles(colors);
 
   return (
     <Modal
@@ -33,31 +37,31 @@ const TodoModal = ({ visible, todo, onClose, onEdit, onDelete }: TodoModalProps)
       onRequestClose={onClose}
     >
       <Pressable 
-        style={styles.modalOverlay}
+        style={modalStyle.modalOverlay}
         onPress={onClose}
       >
-        <Pressable style={styles.modalContent}>
-          <Text style={styles.modalTitle}>{todo.text}</Text>
+        <Pressable style={modalStyle.modalContent}>
+          <Text style={modalStyle.modalTitle}>{todo.text}</Text>
           
-          <View style={styles.buttonContainer}>
+          <View style={modalStyle.buttonContainer}>
             {/* Edit Button */}
             <TouchableOpacity
-              style={[styles.button, styles.editButton]}
+              style={[modalStyle.button, modalStyle.editButton]}
               onPress={handleEdit}
               activeOpacity={0.7}
             >
               <Ionicons name="pencil" size={20} color="#fff" />
-              <Text style={styles.buttonText}>Edit</Text>
+              <Text style={modalStyle.buttonText}>Edit</Text>
             </TouchableOpacity>
 
             {/* Delete Button */}
             <TouchableOpacity
-              style={[styles.button, styles.deleteButton]}
+              style={[modalStyle.button, modalStyle.deleteButton]}
               onPress={handleDelete}
               activeOpacity={0.7}
             >
               <Ionicons name="trash" size={20} color="#fff" />
-              <Text style={styles.buttonText}>Delete</Text>
+              <Text style={modalStyle.buttonText}>Delete</Text>
             </TouchableOpacity>
           </View>
         </Pressable>
@@ -65,61 +69,5 @@ const TodoModal = ({ visible, todo, onClose, onEdit, onDelete }: TodoModalProps)
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    borderRadius: 12,
-    padding: 24,
-    width: '80%',
-    maxWidth: 400,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#000',
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    gap: 8,
-  },
-  editButton: {
-    backgroundColor: '#000000',
-  },
-  deleteButton: {
-    backgroundColor: '#FF3B30',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
 
 export default TodoModal;

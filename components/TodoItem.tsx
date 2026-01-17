@@ -94,7 +94,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
     <>
       {isEditing ? (
         // Editing Mode
-        <View style={[todoItemStyle.container, styles.editContainer]}>
+        <View style={[todoItemStyle.container, styles.editContainer, {borderColor: colors.border}]}>
           <TextInput
             style={styles.editInput}
             value={editText}
@@ -137,7 +137,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
               activeOpacity={0.7}
               style={[
                 todoItemStyle.checkbox,
-                todo.isCompleted && { backgroundColor: "black" }
+                todo.isCompleted && { backgroundColor: colors.border }
               ]}
               onPress={() => handleToggleTodo(todo._id)}
             >
@@ -145,7 +145,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
                 <Ionicons
                   name="checkmark"
                   size={16}
-                  color="#fff"
+                  color={colors.icons} 
                 />
               )}
             </TouchableOpacity>
@@ -175,7 +175,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 8,
     borderWidth: 1,
-    borderColor: '#dfdfdf',
     borderRadius: 8,
     marginRight: 8,
     minHeight: 40,

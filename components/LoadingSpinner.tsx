@@ -1,5 +1,7 @@
+import { createLoadingStyles } from '@/assets/styles/LoadingStyle'
+import useTheme from '@/hooks/useTheme'
 import React, { useEffect, useRef } from 'react'
-import { Animated, Easing, StyleSheet, Text, View } from 'react-native'
+import { Animated, Easing, View } from 'react-native'
 
 const LoadingSpinner = ({ message = 'Loading...' }) => {
   const spinValue = useRef(new Animated.Value(0)).current
@@ -46,51 +48,24 @@ const LoadingSpinner = ({ message = 'Loading...' }) => {
     outputRange: ['0deg', '360deg'],
   })
 
+  const {colors} = useTheme();
+  const loadingStyle = createLoadingStyles(colors);
   return (
-    <View style={styles.container}>
+    <View style={loadingStyle.container}>
       <Animated.View
         style={[
-          styles.spinner,
+          loadingStyle.spinner,
           {
             transform: [{ rotate }, { scale: pulseValue }],
           },
         ]}
       >
-        <View style={styles.arc} />
+        <View style={loadingStyle.arc} />
       </Animated.View>
-      <Text style={styles.text}>{message}</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  spinner: {
-    width: 60,
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  arc: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    borderWidth: 4,
-    borderColor: 'transparent',
-    borderTopColor: '#000000',
-    borderRightColor: '#000000',
-  },
-  text: {
-    fontSize: 16,
-    color: '#000000',
-    fontWeight: '500',
-  },
-})
+
 
 export default LoadingSpinner

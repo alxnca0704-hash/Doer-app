@@ -7,7 +7,7 @@ import { api } from '@/convex/_generated/api';
 import { Doc } from '@/convex/_generated/dataModel';
 import useTheme from '@/hooks/useTheme';
 import { useQuery } from 'convex/react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, StatusBar, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -52,6 +52,7 @@ export default function Index() {
 
   return (
     <SafeAreaView style={homestyle.container}>
+      <StatusBar barStyle={colors.statusBarStyle}/>
       <Header title='Doer'/>
       
       {todos?.length === 0 ? (
